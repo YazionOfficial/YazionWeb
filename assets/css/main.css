@@ -156,8 +156,9 @@ h6 {
 }
 
 .header .logo img {
-  max-height: 125px;
+  max-height: 100px;
   margin-right: 8px;
+  padding: 20px;
 }
 
 .header .logo h1 {
@@ -215,6 +216,16 @@ h6 {
 ------------------------------*/
 .scrolled .header {
   --background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Global Header on Scroll (Dark Mode) --Custom--
+------------------------------*/
+
+@media (prefers-color-scheme: dark) {
+  .scrolled .header {
+    --background-color: rgba(34, 36, 38, 0.95);
+    /* matches surface */
+  }
 }
 
 /*--------------------------------------------------------------
@@ -2998,3 +3009,91 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+
+
+
+/* Custum stuff */
+
+/* Make sure the site actually USES the variables */
+:root {
+  color-scheme: light;
+}
+
+/* hints to the browser for form controls, etc. */
+html,
+body {
+  background: var(--background-color);
+  color: var(--default-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--heading-color);
+}
+
+a {
+  color: var(--accent-color);
+}
+
+/*--------------------------------------------------------------
+# Dark Mode Color Change --Custom--
+--------------------------------------------------------------*/
+
+/* Common surfaces (adjust selectors to your components) */
+
+.card,
+.icon-box,
+.dropdown-menu,
+.modal,
+.offcanvas {
+  background: var(--surface-color);
+  color: var(--default-color);
+}
+
+/* --- AUTO DARK MODE --- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+
+    --background-color: #181a1b;
+    /* softer dark gray for body */
+    --surface-color: #222426;
+    /* slightly lighter for cards/nav */
+    --default-color: #e3e3e3;
+    /* soft off-white for body text */
+    --heading-color: #ffffff;
+    /* clean white for headings */
+    --accent-color: #2979FF;
+    /* brand blue still pops */
+    --contrast-color: #ffffff;
+    /* text over accents */
+
+    /* Navigation */
+    --nav-color: #d1d1d1;
+    --nav-hover-color: #ffffff;
+    --nav-mobile-background-color: #181a1b;
+    --nav-dropdown-background-color: #222426;
+    --nav-dropdown-color: #d1d1d1;
+    --nav-dropdown-hover-color: #ffffff;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .light-background {
+      --background-color: #1a1c20;
+      /* a softer dark gray */
+      --surface-color: #21242a;
+    }
+
+    .dark-background {
+      --background-color: #060606;
+      /* keep as-is or adjust */
+      --default-color: #ffffff;
+      --heading-color: #ffffff;
+      --surface-color: #252525;
+      --contrast-color: #ffffff;
+    }
+  }

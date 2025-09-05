@@ -1,11 +1,3 @@
-/**
-* Template Name: Invent
-* Template URL: https://bootstrapmade.com/invent-bootstrap-business-template/
-* Updated: May 12 2025 with Bootstrap v5.3.6
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-
 (function() {
   "use strict";
 
@@ -212,4 +204,33 @@
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
 
+  // Below is custum added code, It's function is simiply to change the website logo to Dark mode version of it once it detects the user is using the dark mode //
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const logo = document.getElementById("site-logo");
+
+    // Paths to your logos
+    const lightLogo = "assets/img/logo/Yazion (Light Mode) + SUBTITLE.svg";
+    const darkLogo = "assets/img/logo/Yazion (Dark Mode) + SUBTITLE.svg";
+
+    // Function to set logo based on theme
+    function setLogo(e) {
+      if (e.matches) {
+        // Dark mode
+        logo.src = darkLogo;
+      } else {
+        // Light mode
+        logo.src = lightLogo;
+      }
+    }
+
+    // Detect initial theme
+    const darkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+    setLogo(darkScheme);
+
+    // Listen for theme changes
+    darkScheme.addEventListener("change", setLogo);
+  });
+
 })();
+
