@@ -3116,3 +3116,11 @@ a {
       --contrast-color: #ffffff;
     }
   }
+
+  /* --to remove a divider on the phone screen-- */
+
+    @media (max-width: 768px) {
+      .desktop-break {
+        display: none;
+      }
+    }
